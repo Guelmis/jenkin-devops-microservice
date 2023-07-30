@@ -39,6 +39,7 @@ pipeline {
 				sh "mvn clean compile"
 			}
 		}
+
 		stage('Test') {
 			steps {
 				sh "mvn test"
@@ -49,6 +50,7 @@ pipeline {
 				sh "mvn failsafe:integration-test failsafe:verify"
 			}
 		}
+	}
 	post {
 		always {
 			echo 'Im awesome. I run always'
@@ -61,5 +63,3 @@ pipeline {
 			echo 'I run when you failed'
 		}
 	}
-
-}
